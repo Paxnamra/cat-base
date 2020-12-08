@@ -3,6 +3,11 @@ import {CatModel} from '../models/catModels';
 
 const Cat = mongoose.model('Cat', CatModel);
 
+/*
+* try-catch block inside "then's" is to silence: UnhandledPromiseRejectionWarning
+* it is temporary yet to figure out, better solution seems to be to somehow set node flag --unhandled-rejections=silence
+*/
+
 const addNewCat = (req, res) => {
     let newCat = new Cat(req.body);
 
@@ -13,26 +18,40 @@ const addNewCat = (req, res) => {
 
 const getAllCats = (req, res) => {
     Cat.find({})
-        .then(cat => res.json(cat))
-        //return console.log(cat);)
-        .catch(err => res.send(err));
+        .then(cat => {
+            try {
+                res.send({data: cat})
+                } catch (err) {
+            }}).catch(err => res.send(err));
 }
 
 const findCatByID = (req, res) => {
     Cat.findById(req.params.catID)
-        .then(cat => res.send(cat))
+        .then(cat => {
+            try {
+                res.send({data: cat})
+                } catch (err) {
+            }})
         .catch(err => res.send(err));
 }
 
 const updateCat = (req, res) => {
     Cat.findOneAndUpdate({_id: req.params.catID}, req.body, {new: true, useFindAndModify: false})
-        .then(cat => res.json(cat))
+        .then(cat => {
+            try {
+                res.send({data: cat})
+                } catch (err) {
+            }})
         .catch(err => res.send(err));
 }
 
 const deleteCat = (req, res) => {
     Cat.remove({_id: req.params.catID})
-        .then(res.json({message: 'Successfully deleted a cat'}))
+        .then(cat => {
+            try {
+                res.send({message: 'Successfully deleted a cat'})
+                } catch (err) {
+            }})
         .catch(err => res.send(err));
 }
 
