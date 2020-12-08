@@ -13,14 +13,14 @@ const addNewCat = (req, res) => {
 
     newCat.save()
         .then(cat => res.json(cat))
-        .catch(err => res.send(err));
+        .catch(err => res.status(201).send(err));
 }
 
 const getAllCats = (req, res) => {
     Cat.find({})
         .then(cat => {
             try {
-                res.send({data: cat})
+                res.status(200).send({data: cat})
                 } catch (err) {
             }}).catch(err => res.send(err));
 }
@@ -29,7 +29,7 @@ const findCatByID = (req, res) => {
     Cat.findById(req.params.catID)
         .then(cat => {
             try {
-                res.send({data: cat})
+                res.status(200).send({data: cat})
                 } catch (err) {
             }})
         .catch(err => res.send(err));
@@ -39,7 +39,7 @@ const updateCat = (req, res) => {
     Cat.findOneAndUpdate({_id: req.params.catID}, req.body, {new: true, useFindAndModify: false})
         .then(cat => {
             try {
-                res.send({data: cat})
+                res.status(202).send({data: cat})
                 } catch (err) {
             }})
         .catch(err => res.send(err));
@@ -49,7 +49,7 @@ const deleteCat = (req, res) => {
     Cat.remove({_id: req.params.catID})
         .then(cat => {
             try {
-                res.send({message: 'Successfully deleted a cat'})
+                res.status(204).send({message: 'Successfully deleted a cat'})
                 } catch (err) {
             }})
         .catch(err => res.send(err));
