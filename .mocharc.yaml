@@ -1,0 +1,4 @@
+require:
+  - '@babel/core'
+  - 'regenerator-runtime'
+  - '@babel/register'
