@@ -1,9 +1,9 @@
 import chai from 'chai';
+import {expect} from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../server';
 
 chai.use(chaiHttp);
-chai.should();
 
 describe("catController", () => {
     describe("GET /", () => {
@@ -11,8 +11,8 @@ describe("catController", () => {
             chai.request(app)
                 .get('/')
                 .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.should.be.a('Server is running on 4000');
+                    expect(res.status).to.equal(200);
+                    expect(res.body).to.be.a('object');
                     done();
                 });
         });
