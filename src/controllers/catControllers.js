@@ -29,7 +29,9 @@ const findCatByID = (req, res) => {
     Cat.findById(req.params.catID)
         .then(cat => {
             try {
-                res.status(200).json({data: cat})
+                res.status(200).json({
+                    data: cat,
+                    message: `Record of a cat ${cat.name}`})
                 } catch (err) {
             }})
         .catch(err => res.json(err));
