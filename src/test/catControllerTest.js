@@ -7,12 +7,12 @@ chai.use(chaiHttp);
 
 describe("catController", () => {
     describe("GET /", () => {
-        it("should get message that server is running", (done) => {
+        it("should get status 200 and message that server is running on port 4000", (done) => {
             chai.request(app)
                 .get('/')
                 .end((err, res) => {
                     expect(res.status).to.equal(200);
-                    expect(res.body).to.be.a('object');
+                    expect(res.text).to.equal(`Server is running on 4000`);
                     done();
                 });
         });
