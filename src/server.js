@@ -19,5 +19,7 @@ routes(app);
 mongoose.Promise = global.Promise;
 connectToDb().then().catch();
 
+export default app;
+
 
 
