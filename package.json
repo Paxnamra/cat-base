@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha || true",
     "start": "babel src --out-dir dist && nodemon dist/server.js"
   },
   "author": "paxnamra",
@@ -14,6 +14,7 @@
     "@babel/runtime": "^7.12.5",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "mocha": "^8.2.1",
     "mongodb": "^3.6.3",
@@ -24,6 +25,9 @@
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1"
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/register": "^7.12.1",
+    "regenerator-runtime": "^0.13.7"
   }
 }
