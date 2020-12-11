@@ -1,9 +1,9 @@
 import {
     addNewCat,
     getAllCats,
-    deleteCat,
     findCatByName,
-    updateCatByName
+    updateCatByName,
+    deleteCatByName
 } from "../controllers/catControllers";
 
 const routes = (app) => {
@@ -25,7 +25,7 @@ const routes = (app) => {
     app.route('/catsCatalogue/:name')
         .get(findCatByName)
         .put(updateCatByName)
-        .delete(deleteCat);
+        .delete(deleteCatByName);
 }
 
 export default routes;

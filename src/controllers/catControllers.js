@@ -50,8 +50,8 @@ const updateCatByName = (req, res) => {
         .catch(err => res.json(err));
 }
 
-const deleteCat = (req, res) => {
-    Cat.remove({_id: req.params.catID})
+const deleteCatByName = (req, res) => {
+    Cat.deleteOne({name: req.params.name})
         .then(cat => {
             try {
                 res.status(204).json({message: 'Successfully deleted a cat'})
@@ -60,4 +60,4 @@ const deleteCat = (req, res) => {
         .catch(err => res.json(err));
 }
 
-export {addNewCat, getAllCats, findCatByName, updateCatByName, deleteCat};
+export {addNewCat, getAllCats, findCatByName, updateCatByName, deleteCatByName};
