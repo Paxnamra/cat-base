@@ -37,11 +37,14 @@ const findCatByName = (req, res) => {
         .catch(err => res.json(err));
 }
 
-const updateCat = (req, res) => {
-    Cat.findOneAndUpdate({_id: req.params.catID}, req.body, {new: true, useFindAndModify: false})
+const updateCatByName = (req, res) => {
+    Cat.findOneAndUpdate({name: req.params.name}, req.body, {new: true, useFindAndModify: false})
         .then(cat => {
             try {
-                res.status(202).json({data: cat})
+                res.status(202).json({
+                    data: cat,
+                    message: 'Updated!'
+                })
                 } catch (err) {
             }})
         .catch(err => res.json(err));
@@ -57,4 +60,4 @@ const deleteCat = (req, res) => {
         .catch(err => res.json(err));
 }
 
-export {addNewCat, getAllCats, findCatByName, updateCat, deleteCat};
+export {addNewCat, getAllCats, findCatByName, updateCatByName, deleteCat};

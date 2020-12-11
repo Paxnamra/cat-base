@@ -1,4 +1,10 @@
-import {addNewCat, getAllCats, findCatByID, updateCat, deleteCat, findCatByName} from "../controllers/catControllers";
+import {
+    addNewCat,
+    getAllCats,
+    deleteCat,
+    findCatByName,
+    updateCatByName
+} from "../controllers/catControllers";
 
 const routes = (app) => {
     app.route('/')
@@ -18,7 +24,7 @@ const routes = (app) => {
 
     app.route('/catsCatalogue/:name')
         .get(findCatByName)
-        .put(updateCat)
+        .put(updateCatByName)
         .delete(deleteCat);
 }
 
