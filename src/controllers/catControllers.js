@@ -25,13 +25,13 @@ const getAllCats = (req, res) => {
             }}).catch(err => res.json(err));
 }
 
-const findCatByID = (req, res) => {
-    Cat.findById(req.params.catID)
+const findCatByName = (req, res) => {
+    Cat.find({name: req.params.name})
         .then(cat => {
             try {
                 res.status(200).json({
                     data: cat,
-                    message: `Record of a cat ${cat.name}`})
+                    message: `Record of a cat ${req.params.name}`})
                 } catch (err) {
             }})
         .catch(err => res.json(err));
@@ -57,4 +57,4 @@ const deleteCat = (req, res) => {
         .catch(err => res.json(err));
 }
 
-export {addNewCat, getAllCats, findCatByID, updateCat, deleteCat};
+export {addNewCat, getAllCats, findCatByName, updateCat, deleteCat};
