@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {CatModel} from '../models/catModels';
+import {CatModel} from '../models/catModel';
 
 const Cat = mongoose.model('Cat', CatModel);
 
