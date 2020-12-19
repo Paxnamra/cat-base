@@ -1,8 +1,6 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
-
-const sectionModel = new Schema({
+const sectionModel = mongoose.Schema({
     section: String,
     description: String
 });

@@ -1,8 +1,6 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
-
-const CatModel = new Schema({
+const CatModel = mongoose.Schema({
     name: String,
     furType: String,
     colour: String,
