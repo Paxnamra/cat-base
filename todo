@@ -1,0 +1,17 @@
+- package.json file - clean up and fix scripts, nodemon is broken
+- separate env's to different file
+- make default env for mongo to run on localhost if there is no parameter for database connection
+- use gulp or yarn, create tasks/scripts in them
+- proceed with exercises
+- cover with chai tests
+
+After accomplishing all exercises:
+- add and use swagger
+- add and use logger
+- more on authentication and authorization
+- do research on which template engine use with express.js
+- make views for cats
+- check other tests like those only with mocha if they would be useful
+- check how to do integration tests for mongodb on flows of data load, write and update
+
+
