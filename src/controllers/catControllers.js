@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 import {CatModel} from '../models/catModel';
+import {summaryModel} from '../models/summaryModel';
 
 const Cat = mongoose.model('Cat', CatModel);
+const Summary = mongoose.model('Summary', summaryModel);
 
 /*
 * try-catch block inside "then's" is to silence: UnhandledPromiseRejectionWarning
@@ -60,4 +62,9 @@ const deleteCatByName = (req, res) => {
         .catch(err => res.json(err));
 }
 
-export {addNewCat, getAllCats, findCatByName, updateCatByName, deleteCatByName};
+const addSummary = (req, res) => {
+
+}
+
+
+export {addNewCat, getAllCats, findCatByName, updateCatByName, deleteCatByName, addSummary};
