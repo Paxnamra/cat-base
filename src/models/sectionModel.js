@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const sectionModel = mongoose.Schema({
+const SectionModel = mongoose.Schema({
     section: String,
     description: String
 });
 
-export {sectionModel};
+export {SectionModel};

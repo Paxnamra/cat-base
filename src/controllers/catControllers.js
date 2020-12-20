@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 import {CatModel} from '../models/catModel';
-import {summaryModel} from '../models/summaryModel';
+import {SummaryModel} from '../models/summaryModel';
 
 const Cat = mongoose.model('Cat', CatModel);
-const Summary = mongoose.model('Summary', summaryModel);
+const Summary = mongoose.model('Summary', SummaryModel);
 
 /*
 * try-catch block inside "then's" is to silence: UnhandledPromiseRejectionWarning
