@@ -3,7 +3,8 @@ import {
     getAllCats,
     findCatByName,
     updateCatByName,
-    deleteCatByName
+    deleteCatByName,
+    addSummary
 } from "../controllers/catControllers";
 
 const routes = (app) => {
@@ -26,6 +27,9 @@ const routes = (app) => {
         .get(findCatByName)
         .put(updateCatByName)
         .delete(deleteCatByName);
+
+    app.route('/catsCatalogue/addSummary')
+        .post(addSummary);
 }
 
 export default routes;
